@@ -6,7 +6,7 @@ sed -e 's/^/https:\/\/files.rcsb.org\/download\//; s/$/.pdb/' ../PDBj_cryoem.tsv
 wget -i ../PDBj_cryoem_mod.tsv
 cd ..
 
-python3 backbone_calc.py cryoem ./cryoem/ 4
+python3 backbone_calc.py cryoem ./cryoem/ $1
 
 mkdir xray/
 cd xray/
@@ -14,4 +14,4 @@ sed -e 's/^/https:\/\/files.rcsb.org\/download\//; s/$/.pdb/' ../PDBj_cryoem.tsv
 wget -i ../PDBj_cryoem_mod.tsv
 cd ..
 
-python3 backbone_calc.py xray ./xray/ 4
+python3 backbone_calc.py xray ./xray/ $1
