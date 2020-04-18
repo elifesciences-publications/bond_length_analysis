@@ -26,16 +26,17 @@ def distance(position):
 def calc(name):
 	if name.split('.')[-1] == 'pdb':
 		p = PDBParser()
+		structure = p.get_structure(name.split('/')[-1].split('.')[0], name)
 		method = structure.header['structure_method']
 		date = structure.header['deposition_date']
 		resolution = structure.header['resolution']
 	else:
 		p = MMCIFParser()
+		structure = p.get_structure(name.split('/')[-1].split('.')[0], name)
 		header = MMCIF2Dict.MMCIF2Dict(name)
 		method = header['_exptl.method'][0]
 		date = header['_pdbx_database_status.recvd_initial_deposition_date'][0]
 		resolution = None #mmcif resolution annotation is unclear between xray and em
-	structure = p.get_structure(name.split('/')[-1].split('.')[0], name)
 	dist_1 = [distance(residue) for structs in structure for chain in structs for residue in chain if residue.get_resname() in AAs]
 	mean = statistics.mean(dist_1)
 	median = statistics.median(dist_1)
