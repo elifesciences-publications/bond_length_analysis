@@ -15,8 +15,9 @@ AAs = ['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','
 
 atom1 = 'CA'
 atom2 = 'C'
-directory = argv[1]
-threads = argv[2]
+name = argv[1]
+directory = argv[2]
+threads = int(argv[3])
 
 def distance(position):
 	try:
@@ -52,7 +53,7 @@ pool.join()
 #distances = map(runner,tqdm(models,unit='models'))
 distances= list(distances)
 
-with open('Ca-C_'+directory.replace('//','').replace('.','')+'_distances.tsv','w') as f:
+with open(name+'_Ca-C_distances.tsv','w') as f:
 	f.write('model\tdate\tmethod\tresolution\tdistance_mean\tdistance_median\n')
 	for distance in distances:
 		if not(distance == None):
