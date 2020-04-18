@@ -1,14 +1,10 @@
 
 from Bio.PDB import *
 from math import sqrt
-import matplotlib.pyplot as plt
-from scipy.stats import ttest_ind
 import numpy as np
 from sys import argv
 import os
-import gzip
 import multiprocessing as mp
-from tqdm import tqdm
 import statistics
 
 AAs = ['ALA','CYS','ASP','GLU','PHE','GLY','HIS','ILE','LYS','LEU','MET','ASN','PRO','GLN','ARG','SER','THR','VAL','TRP','TYR']
