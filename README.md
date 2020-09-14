@@ -1,3 +1,6 @@
+This code is associated with the paper from  Sauer et al., "Structural basis for the reaction cycle of
+DASS dicarboxylate transporters". eLife, 2020. http://doi.org/10.7554/eLife.61350
+
 # bond_length_analysis
 Calculate the average backbone Ca-C distances for PDB files. 
 
